@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Training outputs
+models/
+logs/
+*.zip
+*.npz
+
+# Evaluation outputs
+evaluation_results.csv
+evaluation_results.png
+*.json
+
+# Final evaluation
+Final_evaluation/
+
+# Paper content
+Paper_Chapter.txt
+
+# Tensorboard
+events.out.tfevents.*
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# pytest
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
+

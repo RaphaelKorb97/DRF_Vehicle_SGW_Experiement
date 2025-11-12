@@ -1,0 +1,45 @@
+"""Configuration parameters for the multi-agent RL car-following simulation"""
+import numpy as np
+
+# Environment parameters
+ROAD_LENGTH = 220.0
+NUM_VEHICLES = 15
+SIMULATION_DT = 0.1
+
+# Vehicle dynamics parameters
+MAX_ACCELERATION = 2.0
+MAX_DECELERATION = -5.0
+MIN_VELOCITY = 0.0
+MAX_VELOCITY = 20.0
+VEHICLE_LENGTH = 5.0
+
+# Desired behavior parameters
+DESIRED_VELOCITY = 10.0
+DESIRED_TIME_HEADWAY = 1.2
+MIN_DISTANCE = 8.0
+
+# Reward function weights
+REWARD_VELOCITY_WEIGHT = 7.5
+REWARD_SAFETY_WEIGHT = 80.0
+REWARD_COLLISION_PENALTY = -2000.0
+
+# Safety zones for progressive rewards
+SAFETY_ZONE_EXCELLENT = 25.0
+SAFETY_ZONE_GOOD = 18.0
+SAFETY_ZONE_ACCEPTABLE = 15.0
+SAFETY_ZONE_CAUTION = 12.0
+SAFETY_ZONE_WARNING = 9.0
+SAFETY_ZONE_CRITICAL = 7.0
+
+# Safety reward multipliers
+EXCELLENT_SPACING_BONUS = 2.0
+GOOD_SPACING_BONUS = 1.0
+CAUTION_PENALTY_MULTIPLIER = -5.0
+WARNING_PENALTY_MULTIPLIER = -20.0
+CRITICAL_PENALTY_MULTIPLIER = -100.0
+
+# Observation space
+OBSERVATION_RANGE = 50.0
+
+# Training parameters
+TOTAL_TIMESTEPS = 200000
