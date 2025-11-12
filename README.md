@@ -62,26 +62,11 @@ python multi_agent_train.py --mode train --agent_id 0
 Evaluate and visualize trained models:
 
 ```bash
-python multi_agent_train.py --mode eval --episodes 10
+python visual_demo.py
 ```
 
 
 
-### Reward Function
-
-The reward balances multiple objectives:
-
-$$r(t) = w_v r_v(t) + w_s r_s(t)$$
-
-Where:
-- **Velocity reward** \(r_v(t)\): Penalizes deviation from desired velocity (10 m/s)
-- **Safety reward** \(r_s(t)\): Progressive penalties/bonuses based on distance zones
-
-### Training Features
-
-- **Perturbations**: Random emergency braking (3% probability per step, 3s duration)
-- **Sensor noise**: Gaussian noise (σ = 0.5m) added to distance measurements
-- **Safety override**: Prevents collisions during training
 
 
 
