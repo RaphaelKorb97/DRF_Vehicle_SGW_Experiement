@@ -57,30 +57,15 @@ Train a specific agent:
 python multi_agent_train.py --mode train --agent_id 0
 ```
 
-### Evaluation
+### Visualization
 
-Evaluate trained models:
+Evaluate and visualize trained models:
 
 ```bash
 python multi_agent_train.py --mode eval --episodes 10
 ```
 
-Run comprehensive evaluation with metrics:
 
-```bash
-python evaluation.py
-```
-
-## Environment Setup
-
-### State Space (4-dimensional)
-- Own velocity \(v_t\)
-- Relative distance to front vehicle \(d_t\)
-- Relative velocity to front vehicle \(\Delta v_t\)
-- Front vehicle velocity \(v_{t,f}\)
-
-### Action Space
-- Continuous acceleration command: \(a_t \in [-5, 2]\) m/s²
 
 ### Reward Function
 
@@ -98,50 +83,14 @@ Where:
 - **Sensor noise**: Gaussian noise (σ = 0.5m) added to distance measurements
 - **Safety override**: Prevents collisions during training
 
-## Configuration
 
-Key parameters in `config.py`:
 
-```python
-ROAD_LENGTH = 220.0          # Ring road length (meters)
-NUM_VEHICLES = 15            # Number of vehicles
-DESIRED_VELOCITY = 10.0      # Target velocity (m/s)
-DESIRED_TIME_HEADWAY = 1.2   # Time gap parameter (s)
-MIN_DISTANCE = 8.0           # Minimum safe distance (m)
-```
-
-## Results
-
-Our trained agents exhibit emergent cooperative behavior where one vehicle maintains a large gap (buffer vehicle) while others maintain smaller time gaps, effectively stabilizing traffic flow and suppressing stop-and-go waves.
-
-### Typical Performance
-- **Average velocity**: ~10 m/s (target achieved)
-- **Collision rate**: Near-zero with safety override
-- **String stability**: Improved wave damping compared to traditional models
-
-## Pre-trained Models
-
-Pre-trained model weights are not included in this repository. If you are interested in obtaining the trained models for evaluation or further research, please contact the authors via email (see Contact section below).
-
-## GPU Acceleration
-
-The code automatically detects and uses available GPU acceleration:
-- **Apple Silicon**: Metal Performance Shaders (MPS)
-- **NVIDIA**: CUDA
-- **Fallback**: CPU
 
 ## Citation
 
 If you use this code in your research, please cite our paper:
 
-```bibtex
-@article{your_paper_2024,
-  title={Deep Reinforcement Learning for Stop-and-Go Wave Mitigation},
-  author={Your Name},
-  journal={Your Journal},
-  year={2024}
-}
-```
+
 
 ## License
 
