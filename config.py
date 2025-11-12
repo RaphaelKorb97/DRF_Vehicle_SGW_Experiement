@@ -20,6 +20,7 @@ MIN_DISTANCE = 8.0
 
 # Reward function weights
 REWARD_VELOCITY_WEIGHT = 7.5
+REWARD_DISTANCE_WEIGHT = 5.0  # Weight for desired headway reward
 REWARD_SAFETY_WEIGHT = 80.0
 REWARD_COLLISION_PENALTY = -2000.0
 

@@ -198,8 +198,18 @@ class MultiAgentACCEnvironment(gym.Env):
             velocity_reward = -velocity_error / DESIRED_VELOCITY
             reward += REWARD_VELOCITY_WEIGHT * velocity_reward
             
-            # Safety rewards (progressive zones)
+            # Get front vehicle info for distance-based rewards
             front_distance, front_velocity, relative_velocity = self._get_front_vehicle_info(vehicle)
+            
+            # Distance reward (maintain desired headway d*(t) = T*v(t) + ℓ)
+            if front_distance is not None:
+                desired_headway = DESIRED_TIME_HEADWAY * vehicle.velocity + VEHICLE_LENGTH
+                if desired_headway > 0:  # Avoid division by zero
+                    distance_error = abs(front_distance - desired_headway) / desired_headway
+                    distance_reward = -distance_error
+                    reward += REWARD_DISTANCE_WEIGHT * distance_reward
+            
+            # Safety rewards (progressive zones)
             if front_distance is not None:
                 safety_reward = self._calculate_progressive_safety_reward(front_distance)
                 reward += safety_reward
